@@ -1,11 +1,11 @@
-var express = require('express');
-var bcrypt = require('bcryptjs');
-var User = require('../models/user');
-var jwt = require('jsonwebtoken');
-var autentication = require('../middlewares/autentication');
+const express = require('express');
+const bcrypt = require('bcryptjs');
+const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+const autentication = require('../middlewares/autentication');
 
 
-var app = express();
+const app = express();
 //find Users
 app.get('/', (req, res, next) => {
     User.find({}, (err, users) => {
@@ -28,8 +28,8 @@ app.get('/', (req, res, next) => {
 
 //update user
 app.put('/:id', autentication.verifytoken, (req, res) => {
-    var id = req.params.id;
-    var body = req.body;
+    const id = req.params.id;
+    const body = req.body;
 
     User.findById(id, (err, userOld) => {
         if (err) {
@@ -68,8 +68,8 @@ app.put('/:id', autentication.verifytoken, (req, res) => {
 
 //created User
 app.post('/', autentication.verifytoken, (req, res) => {
-    var body = req.body;
-    var user = new User({
+    const body = req.body;
+    const user = new User({
         name: body.name,
         email: body.email,
         password: bcrypt.hashSync(body.password, 10)

@@ -1,20 +1,21 @@
 //requires
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 // Inicializar variables
-var app = express();
+const app = express();
 
 //body  parser
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// import routesS
-var appRoute = require('./routes/route');
-var appUser = require('./routes/user.route');
-var appLogin = require('./routes/login.route');
+// import routes
+const appRoute = require('./routes/route');
+const appUser = require('./routes/user.route');
+const appLogin = require('./routes/login.route');
+const appProduct = require('./routes/product.route');
 
 //Conection
 mongoose.connection.openUri('mongodb://localhost:27017/testdb', (err, res) => {
@@ -26,6 +27,7 @@ mongoose.connection.openUri('mongodb://localhost:27017/testdb', (err, res) => {
 //Routes
 app.use('/user', appUser);
 app.use('/login', appLogin);
+app.use('/product', appProduct);
 app.use('/', appRoute);
 
 

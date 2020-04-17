@@ -1,15 +1,15 @@
-var express = require('express');
-var bcrypt = require('bcryptjs');
-var user = require('../models/user');
-var jwt = require('jsonwebtoken');
-var SEED = require('../config/config').SEED;
+const express = require('express');
+const bcrypt = require('bcryptjs');
+const user = require('../models/user');
+const jwt = require('jsonwebtoken');
+const SEED = require('../config/config').SEED;
 
 
-var app = express();
+const app = express();
 
 //autentication
 app.post('/', (req, res) => {
-    var body = req.body;
+    const body = req.body;
     user.findOne({ email: body.email }, (err, user) => {
         if (err) {
             return res.status(500).json({
@@ -26,7 +26,7 @@ app.post('/', (req, res) => {
         }
         //create JWT
         user.password = ''
-        var token = jwt.sign({ user, user }, SEED, { expiresIn: 14400 });
+        const token = jwt.sign({ user, user }, SEED, { expiresIn: 14400 });
         res.status(201).json({
             ok: true,
             user: user,
