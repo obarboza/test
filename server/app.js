@@ -35,9 +35,9 @@ app.use('/api/user', appUser);
 app.use('/api/login', appLogin);
 app.use('/api/product', appProduct);
 app.use('/api', appRoute);
-
+const port = process.env.PORT || 8080;
 
 // Escuchar petición
-app.listen(3000, () => {
-    console.log("Express server puerto 3000 online");
+app.listen(port, () => {
+    console.log('Express server port: ' + port);
 });
