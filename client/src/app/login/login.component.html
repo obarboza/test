@@ -1,0 +1,31 @@
+<div class="center">
+    <mat-card class="login-container">
+        <mat-card-content class="login-content">
+            <h2>Sign In</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="signIn(); $event.preventDefault(); $event.stopPropagation();">
+                <mat-form-field tn-input appearance="outline" floatLabel="never">
+                    <mat-icon matPrefix>person_pin</mat-icon>
+                    <input type="text" matInput placeholder="Usuario" formControlName="username" required>
+                    <mat-error *ngIf="userNameErrorRequired">
+                        El nombre de usuario es requerido
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field tn-input appearance="outline" floatLabel="never">
+                    <mat-icon matPrefix>lock</mat-icon>
+                    <input type="password" matInput placeholder="Contraseña" formControlName="password">
+                    <mat-error *ngIf="passwordErrorRequired">
+                        La contraseña es requerida
+                    </mat-error>
+                </mat-form-field>
+
+                <button class="mt-15" mat-raised-button full color="primary" type="submit" [disabled]="loginFormInvalid">
+              INGRESAR
+            </button>
+            </form>
+            <button class="mt-15" mat-raised-button full color="warn" id="btngoogle">
+                INGRESAR CON GOOGLE
+              </button>
+        </mat-card-content>
+    </mat-card>
+</div>

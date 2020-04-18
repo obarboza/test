@@ -8,7 +8,7 @@ const product = new Schema({
     amount: { type: Number, required: [true, 'La cantidad es necesaria'] },
     iva8: { type: Boolean, default: 0 },
     iva16: { type: Boolean, default: 0 },
-    ieps: { type: Boolean, default: 0 }
+    ieps: { type: Number, default: 0 }
 
 });
 
