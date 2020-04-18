@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
     })
   }
   signIn() {
-    console.log(this.loginForm.value);
     this.userService.singIn(this.loginForm.value).subscribe(data => {
       this.router.navigate(['/home']);
     });

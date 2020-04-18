@@ -54,19 +54,16 @@ export class HomeComponent implements OnInit {
       });
   }
   handleFileInput(files: FileList) {
-    console.log(files);
     this.fileToUpload = files.item(0);
   }
   upLoadProduct() {
     this.productService.setProducts(this.fileToUpload).subscribe(data => {
-      console.log(data);
     });
   }
   convertListProduct() {
     const rows = this.lstProducts.length + 2;
     const colums = 8;
     this.data = [];
-    console.log(this.data);
     this.data.push([
       'Nombre',
       'Descripción',

@@ -6,3 +6,24 @@ table {
     width: 95%;
     padding-top: 80px;
 }
+
+.mat-card-product {
+    margin-left: 20px;
+    align-content: center;
+}
+
+.mat-card-export {
+    margin-left: 20px;
+    align-content: center;
+    max-width: 45%;
+}
+
+.mat-card-upload {
+    margin-left: 20px;
+    align-content: center;
+    max-width: 45%;
+}
+
+.mat-card-upload .button {
+    padding-top: 15px;
+}

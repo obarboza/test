@@ -8,7 +8,7 @@ const upload = multer();
 
 const app = express();
 //find all products
-app.get('/', (req, res, next) => {
+app.get('/', autentication.verifytoken, (req, res, next) => {
     product.find({}, (err, products) => {
         if (err) {
             return res.status(500).json({
@@ -28,7 +28,7 @@ app.get('/', (req, res, next) => {
 
 
 //created or update product
-app.post('/', upload.single('fileKey'), async(req, res) => {
+app.post('/', autentication.verifytoken, upload.single('fileKey'), async(req, res) => {
     const formData = req.file;
     const products = [];
     const result = excelToJson({

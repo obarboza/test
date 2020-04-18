@@ -15,7 +15,6 @@ const app = express();
 //autentication
 app.post('/', (req, res) => {
     const body = req.body;
-    console.log(body);
     User.findOne({ email: body.username }, (err, user) => {
         if (err) {
             return res.status(500).json({
